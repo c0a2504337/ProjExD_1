@@ -37,7 +37,7 @@ def main():
             mx = 50
         
         kt_rct.move_ip(mx,my) #キーを押していない場合後ろに行く
-
+        #プッシュ完了
         
 
 
