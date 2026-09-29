@@ -11,9 +11,10 @@ def main():
     clock  = pg.time.Clock() 
     bg_img = pg.image.load("fig/pg_bg.jpg")
     bg_img2 = pg.transform.flip(bg_img, True ,False)
-    kt_img = pg.image.load("fig/3.png")#こうかとん画像
-    kk__img = pg.image.load("fig/3.png")
+    kt_img = pg.image.load("fig/3.png")#こうかとん画
     kt_img = pg.transform.flip(kt_img,True,False)#工科トン左右反転
+    kt_rct = kt_img.get_rect() 
+    kt_rct.center = 300,200 #練習10-2　工科トン初期座標
 
     tmr = 0
     while True:
@@ -21,10 +22,11 @@ def main():
             if event.type == pg.QUIT: return
 
         x = tmr %3200
-        screen.blit(bg_img, [x, 0])
+        screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img2,[-x+1600,0])
         screen.blit(bg_img,[-x+3200,0])
-        bg_img.blit(kt_img,[300,200])#こうかとん貼り付け
+        screen.blit(kt_img,[300,200])#こうかとん貼り付け
+        screen.blit(kt_img,kt_rct)
         pg.display.update()
         tmr += 1        
         clock.tick(200)
