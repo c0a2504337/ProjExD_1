@@ -22,18 +22,24 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-            key_lst = pg.key.get_pressed()
+        mx =-1
+        my = 0
+
+        key_lst = pg.key.get_pressed()
 
         if key_lst[pg.K_UP]:
-            kt_rct.move_ip(0, -1)
+            my = -1
         if key_lst[pg.K_DOWN]:
-            kt_rct.move_ip(0, +1)
+            my = 1
         if key_lst[pg.K_LEFT]:
-            kt_rct.move_ip(-1, 0)
+            mx = -2
         if key_lst[pg.K_RIGHT]:
-            kt_rct.move_ip(+1, 0)
-        else:
-            kt_rct.move_ip(-1, 0)
+            mx = 50
+        
+        kt_rct.move_ip(mx,my) #キーを押していない場合後ろに行く
+
+        
+
 
         x = tmr %3200
         screen.blit(bg_img, [-x, 0])
