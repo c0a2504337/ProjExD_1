@@ -34,7 +34,7 @@ def main():
         if key_lst[pg.K_LEFT]:
             mx = -2
         if key_lst[pg.K_RIGHT]:
-            mx = 50
+            mx = 1
         
         kt_rct.move_ip(mx,my) #キーを押していない場合後ろに行く
         #プッシュ完了
