@@ -14,6 +14,7 @@ def main():
     kt_img = pg.image.load("fig/3.png")#こうかとん画
     kt_img = pg.transform.flip(kt_img,True,False)#工科トン左右反転
     kt_rct = kt_img.get_rect() 
+    kt_rct = kt_img.get_rect()
     kt_rct.center = 300,200 #練習10-2　工科トン初期座標
 
     tmr = 0
@@ -21,11 +22,21 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
+            key_lst = pg.key.get_pressed()
+
+        if key_lst[pg.K_UP]:
+            kt_rct.move_ip(0, -1)
+        if key_lst[pg.K_DOWN]:
+            kt_rct.move_ip(0, +1)
+        if key_lst[pg.K_LEFT]:
+            kt_rct.move_ip(-1, 0)
+        if key_lst[pg.K_RIGHT]:
+            kt_rct.move_ip(+1, 0)
+
         x = tmr %3200
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img2,[-x+1600,0])
         screen.blit(bg_img,[-x+3200,0])
-        screen.blit(kt_img,[300,200])#こうかとん貼り付け
         screen.blit(kt_img,kt_rct)
         pg.display.update()
         tmr += 1        
