@@ -15,7 +15,7 @@ def main():
     kt_img = pg.transform.flip(kt_img,True,False)#工科トン左右反転
     kt_rct = kt_img.get_rect() 
     kt_rct = kt_img.get_rect()
-    kt_rct.center = 300,200 #練習10-2　工科トン初期位置
+    kt_rct.center = 300,200 #練習10-2　工科トン初期座標
 
     tmr = 0
     while True:
@@ -34,7 +34,7 @@ def main():
         if key_lst[pg.K_LEFT]:
             mx = -2
         if key_lst[pg.K_RIGHT]:
-            mx = 50
+            mx = 1
         
         kt_rct.move_ip(mx,my) #キーを押していない場合後ろに行く
 
